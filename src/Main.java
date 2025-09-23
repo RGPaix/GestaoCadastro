@@ -36,6 +36,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.print("\nDigite um ID para buscar: ");
         int idBusca = sc.nextInt();
+        sc.nextLine();
 
         long inicio = System.nanoTime();
         Livro resultadoLista = lista.buscarPorId(idBusca);
@@ -46,5 +47,18 @@ public class Main {
         Livro resultadoPilha = pilha.buscarPorId(idBusca);
         fim = System.nanoTime();
         System.out.println("Busca na Pilha: " + resultadoPilha + " (tempo: " + (fim - inicio) + " ns)");
+
+        System.out.print("\nDigite um nome para buscar: ");
+        String nomeBusca = sc.nextLine();
+
+        long inicio1 = System.nanoTime();
+        Livro resultadoLista1 = lista.buscarPorNome(nomeBusca);
+        long fim1 = System.nanoTime();
+        System.out.println("Busca na Lista: " + resultadoLista1 + " (tempo: " + (fim1 - inicio1) + " ns)");
+
+        inicio1 = System.nanoTime();
+        Livro resultadoPilha1 = pilha.buscarPorNome(nomeBusca);
+        fim1 = System.nanoTime();
+        System.out.println("Busca na Pilha: " + resultadoPilha1 + " (tempo: " + (fim1 - inicio1) + " ns)");
     }
 }
